@@ -96,8 +96,8 @@ jobs:
 
       - name: Create source archives
         run: |
-          git archive --format=zip --output=pagasa-weather-demo-${GITHUB_REF_NAME}.zip ${GITHUB_SHA}
-          git archive --format=tar.gz --output=pagasa-weather-demo-${GITHUB_REF_NAME}.tar.gz ${GITHUB_SHA}
+          git archive --format=zip --output=pagasa-weather-demo-app-${GITHUB_REF_NAME}.zip ${GITHUB_SHA}
+          git archive --format=tar.gz --output=pagasa-weather-demo-app-${GITHUB_REF_NAME}.tar.gz ${GITHUB_SHA}
 
       - name: Extract changelog entry for release notes
         run: |
@@ -122,8 +122,8 @@ jobs:
         with:
           name: release-assets
           path: |
-            pagasa-weather-demo-${{ github.ref_name }}.zip
-            pagasa-weather-demo-${{ github.ref_name }}.tar.gz
+            pagasa-weather-demo-app-${{ github.ref_name }}.zip
+            pagasa-weather-demo-app-${{ github.ref_name }}.tar.gz
             release_notes.md
 
   create-release:
@@ -140,5 +140,5 @@ jobs:
         with:
           body_path: release_notes.md
           files: |
-            pagasa-weather-demo-${{ github.ref_name }}.zip
-            pagasa-weather-demo-${{ github.ref_name }}.tar.gz
+            pagasa-weather-demo-app-${{ github.ref_name }}.zip
+            pagasa-weather-demo-app-${{ github.ref_name }}.tar.gz
